@@ -1,0 +1,56 @@
+// Por final temos Trumps, que no RSCSS também são chamados de Helpers.
+// Essa camada é a responsável pela maior especificidade de todas,
+// tendo seus componentes até com !important. A ideia dos trumps é que eles
+// sejam usados para classes reativas, comumente aquelas que queremos que
+// aconteça não importa o que aconteça, o clássico .hidden. Faz todo sentido
+// que para esses casos, o !important seja utilizado.
+
+.DayPicker,
+.DayPicker-wrapper,
+.DayPicker-Day {
+  outline: none;
+}
+
+.DayPicker {
+  .DayPicker-NavButton--prev {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjZweCIgaGVpZ2h0PSI1MHB4IiB2aWV3Qm94PSIwIDAgMjYgNTAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI2IDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48dGl0bGU+cHJldjwvdGl0bGU+PGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+PGcgaWQ9IlBhZ2UtMSIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+PGcgaWQ9InByZXYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzLjM5MzE5MywgMjUuMDAwMDAwKSBzY2FsZSgtMSwgMSkgdHJhbnNsYXRlKC0xMy4zOTMxOTMsIC0yNS4wMDAwMDApIHRyYW5zbGF0ZSgwLjg5MzE5MywgMC4wMDAwMDApIiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIj48cGF0aCBpZD0icmlnaHQiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiIGZpbGw9IiNGRkZGRkYiIGQ9Ik0wLDQ5LjEyNHYtMy43NTdsMjAuMTMyLTIwLjY0NEwwLDQuMjMxVjAuNDc1bDI1LDI0LjI0OEwwLDQ5LjEyNEwwLDQ5LjEyNHoiLz48L2c+PC9nPjwvc3ZnPg==);
+    outline: none;
+  }
+
+  .DayPicker-NavButton--next {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjZweCIgaGVpZ2h0PSI1MHB4IiB2aWV3Qm94PSIwIDAgMjYgNTAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI2IDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48dGl0bGU+bmV4dDwvdGl0bGU+PGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+PGcgaWQ9IlBhZ2UtMSIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+PGcgaWQ9Im5leHQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuOTUxNDUxLCAwLjAwMDAwMCkiIHNrZXRjaDp0eXBlPSJNU0xheWVyR3JvdXAiPjxwYXRoIGlkPSJyaWdodCIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCIgZmlsbD0iI0ZGRkZGRiIgZD0iTTAsNDkuMTI0di0zLjc1N2wyMC4xMzItMjAuNjQ0TDAsNC4yMzFWMC40NzVsMjUsMjQuMjQ4TDAsNDkuMTI0TDAsNDkuMTI0eiIvPjwvZz48L2c+PC9zdmc+);
+    outline: none;
+  }
+
+  .DayPicker-Weekday {
+    color: #fff;
+    font-size: .8em;
+    padding: .5rem;
+  }
+
+  .DayPicker-Day,
+  .DayPicker-WeekNumber {
+    border: 0;
+    font-size: 1em;
+    padding: .2rem .8rem 1.2rem .8rem;
+    position: relative;
+  }
+
+  .DayPicker-Day--today {
+    color: #F06292;
+  }
+
+  .DayPicker-Day--selected {
+    background-color: #1b183c !important;
+  }
+
+  .DayPicker-Day--disabled {
+    background-color: transparent;
+    opacity: .5;
+  }
+
+  abbr[title] {
+    text-decoration: none;
+    border: 0;
+  }
+}

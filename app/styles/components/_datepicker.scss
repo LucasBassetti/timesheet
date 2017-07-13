@@ -1,0 +1,17 @@
+.datepicker {
+
+  .approved {
+    color: $approved;
+  }
+
+  .rejected {
+    color: $rejected;
+  }
+
+  .time {
+    bottom: 5px;
+    font-size: 10px;
+    left: calc(50% - 4px);
+    position: absolute;
+  }
+}

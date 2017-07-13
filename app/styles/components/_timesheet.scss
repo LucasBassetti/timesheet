@@ -1,0 +1,7 @@
+.timesheet {
+  @include flex('flex', 'ai-center', '', 'column');
+  margin: auto;
+  min-height: 100vh;
+  max-width: 320px;
+  padding: 12px;
+}

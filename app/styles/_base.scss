@@ -1,0 +1,60 @@
+// Aqui ficarão as estilizações básicas, a última camada que veremos
+// seletores em tags diretamente. Portanto aqui ficarão estilos
+// para os headings h1-h6, blockquotes, a, buttons, etc.
+// Mas lembre-se são estilizações BÁSICAS, nada de estilizar tudo aqui!
+//
+// Exemplo:
+// ul {
+//     list-style: square outside;
+// }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom, $primary, $secondary);
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+}
+
+input,
+select {
+  -webkit-appearance: none;
+  border: 0;
+  color: #4a4a4a;
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  background-color: white;
+  border: 0;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+}

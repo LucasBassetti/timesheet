@@ -1,0 +1,50 @@
+.details {
+  @include flex('flex', 'ai-center', '', 'column');
+
+  .format-date,
+  .no-approved {
+    font-size: 22px;
+    overflow: hidden;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+  }
+
+  .result {
+    background: rgb(94, 84, 180);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+    transform: translateY(100%);
+    transition: transform .3s ease;
+    width: 100%;
+
+    &.opened {
+      transform: translateY(0);
+    }
+  }
+
+  .time {
+    margin-top: 1rem;
+
+    .input-time {
+      border-radius: 2px;
+      margin-right: 6px;
+      padding: 3px 6px;
+    }
+
+    .hours {
+      margin-right: 12px;
+    }
+  }
+
+  .buttons {
+    margin-top: 1.5rem;
+
+    .button {
+      width: 95px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+// Essas são as configurações básicas da sua arquitetura.
+// Em geral, são as variáveis globais que vão definir cores,
+// espaçamentos e outras configurações desejadas para o
+// funcionamento do seu framework em si.
+// Perceba que nada aqui será gerado como CSS final,
+// sendo somente utilizado na criação.
+//
+// Exemplo:
+// $color-ui: #BADA55;
+// $spacing-unit: 10px;
+
+$primary: #3f62b3;
+$secondary: #6f4db5;
+
+$approved: #2196F3;
+$rejected: #F06292;
+
+$screen-phone: 480px;
+$screen-tablet: 768px;
+$screen-desktop: 992px;
+$screen-lg-desktop: 1200px;

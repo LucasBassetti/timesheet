@@ -1,0 +1,67 @@
+// É o lugar onde você vai guardar seus mixins e funções necessárias
+// para a construção de seus layouts. Pode ser qualquer coisa,
+// desde mixins de font-face, até mixins de animações, etc.
+// Repare que aqui, nada é gerado diretamente como CSS final também.
+//
+// Exemplo:
+// @mixin font-brand() {
+//     fotn-family: "UI font", sans-serif;
+//     font-weigth: 400;
+// }
+
+@keyframes opacity {
+  0% { opacity: .5; }
+  100% { opacity: 1; }
+}
+
+@mixin flex($display, $ai, $jc, $flow) {
+  // Display
+  @if $display == 'flex' {
+    display: flex;
+  }
+  @else if $display == 'inline-flex' {
+    display: inline-flex;
+  }
+
+  // Align items
+  @if $ai == 'ai-center' {
+    align-items: center;
+  }
+  @else if $ai == 'ai-start' {
+    align-items: flex-start;
+  }
+  @else if $ai == 'ai-end' {
+    align-items: flex-end;
+  }
+
+  // Justify content
+  @if $jc == 'jc-center' {
+    justify-content: center;
+  }
+  @else if $jc == 'jc-start' {
+    justify-content: flex-start;
+  }
+  @else if $jc == 'jc-end' {
+    justify-content: flex-end;
+  }
+  @else if $jc == 'jc-around' {
+    justify-content: space-around;
+  }
+  @else if $jc == 'jc-between' {
+    justify-content: space-between;
+  }
+
+  // Flex flow
+  @if $flow == 'column' {
+    flex-flow: column;
+  }
+  @else if $flow == 'column wrap' {
+    flex-flow: column wrap;
+  }
+  @else if $flow == 'row' {
+    flex-flow: row;
+  }
+  @else if $flow == 'row wrap' {
+    flex-flow: row wrap;
+  }
+}
