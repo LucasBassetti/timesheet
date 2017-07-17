@@ -55,6 +55,7 @@ class Timesheet extends Component {
         <Details
           details={details}
           putWeek={this.props.putWeek}
+          setDetails={this.props.setDetails}
         />
       </div>
     );

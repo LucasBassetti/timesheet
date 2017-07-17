@@ -9,6 +9,7 @@ class DatePicker extends Component {
 
     this.state = {
       disabled: true,
+      currentMonth: new Date(),
       selectedUser: undefined,
       selectedMonth: moment().month() + 1,
       selectedYear: moment().year(),
@@ -55,11 +56,15 @@ class DatePicker extends Component {
     }
   }
 
-  handleDayClick(day) {
+  handleDayClick(day, { outside }) {
     const { weeks, selectedUser } = this.props;
-    const { disabled, approvers } = this.state;
+    const { disabled, approvers, currentMonth } = this.state;
 
     if (disabled) return;
+
+    if (outside) {
+      this.daypicker.showMonth(currentMonth);
+    }
 
     const date = moment(day).isoWeekday(1);
     const dayOfMonth = date.date();
@@ -81,6 +86,7 @@ class DatePicker extends Component {
     if (selectedWeek.length > 0) {
       const selectedDay = selectedWeek[0].days_in_week.filter(d => d.day_number === dayOfMonth);
       details.weekId = selectedWeek[0].week_id;
+      details.week = selectedWeek[0];
 
       if (selectedDay.length > 0) {
         details.hours = selectedDay[0].hours;
@@ -105,7 +111,7 @@ class DatePicker extends Component {
     const selectedMonth = date.month() + 1;
     const selectedYear = date.year();
 
-    this.setState({ disabled: true, selectedMonth, selectedYear }, () => {
+    this.setState({ disabled: true, currentMonth: month, selectedMonth, selectedYear }, () => {
       this.props.fetchWeeks({ selectedUser, selectedYear, selectedMonth });
     });
   }
@@ -140,7 +146,7 @@ class DatePicker extends Component {
   }
 
   render() {
-    const { disabled, dates } = this.state;
+    const { disabled, dates, currentMonth } = this.state;
     const disabledDays = disabled ? [{
       daysOfWeek: [0, 1, 2, 3, 4, 5, 6],
     }] : [];
@@ -150,9 +156,11 @@ class DatePicker extends Component {
     return (
       <div className="datepicker">
         <DayPicker
+          ref={el => this.daypicker = el}
           enableOutsideDays
           firstDayOfWeek={1}
           selectedDays={dates}
+          month={currentMonth}
           disabledDays={disabledDays}
           onDayClick={this.handleDayClick}
           onMonthChange={this.handleMonthChange}

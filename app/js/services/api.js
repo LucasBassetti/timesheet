@@ -29,7 +29,7 @@ const putWeek = ({ weekId, user, status }, callback) => {
   return axios.put(url, data).then((result) => {
     const week = result.data;
 
-    if (callback) callback();
+    if (callback) callback(week);
 
     return week;
   });

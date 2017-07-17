@@ -12,6 +12,7 @@
     "camelcase": ["off"],
     "no-unused-expressions": ["off"],
     "no-confusing-arrow": ["off"],
+    "no-return-assign": ["off"],
     "no-use-before-define": ["off"],
     "no-param-reassign": ["off"],
     "class-methods-use-this": ["off"],

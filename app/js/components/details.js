@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import TimeInput from './time_input';
@@ -41,9 +42,11 @@ class Details extends Component {
     loading[status] = true;
 
     this.setState({ loading }, () => {
-      this.props.putWeek({ weekId, user, status }, () => {
+      this.props.putWeek({ weekId, user, status }, (week) => {
         loading[status] = false;
         this.setState({ loading, status }, () => {
+          details.week = week;
+          this.props.setDetails(details);
           setTimeout(() => {
             this.setState({ status: undefined });
           }, 1000);
@@ -58,6 +61,13 @@ class Details extends Component {
     const { loading, status } = this.state;
     const hasDetails = Object.keys(details).length > 0;
     const disabled = loading.approved || loading.rejected;
+    let approveDate;
+    let detailStatus;
+
+    if (details.week) {
+      approveDate = moment(details.week.approved_by_date).format('MMMM Do YYYY, h:mm:ss a');
+      detailStatus = `${details.week.status} on ${approveDate}`;
+    }
 
     if (!hasDetails) {
       return <div className="details" />;
@@ -68,9 +78,12 @@ class Details extends Component {
         <div className="details">
           <p className="format-date">
             {formatedDate}
+            <span className="status">
+              {detailStatus}
+            </span>
           </p>
           <p className="no-approved">
-            You are not able to approve/reject this day
+            You are not able to approve/reject this week
           </p>
         </div>
       );
@@ -80,6 +93,9 @@ class Details extends Component {
       <div className="details">
         <p className="format-date">
           {formatedDate}
+          <span className="status">
+            {detailStatus}
+          </span>
           <span className={`result ${status ? 'opened' : ''}`}>
             {status}!
           </span>
@@ -124,6 +140,7 @@ class Details extends Component {
 Details.propTypes = {
   details: PropTypes.object.isRequired,
   putWeek: PropTypes.func.isRequired,
+  setDetails: PropTypes.func.isRequired,
 };
 
 export default Details;
