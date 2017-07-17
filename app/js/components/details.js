@@ -64,8 +64,8 @@ class Details extends Component {
     let approveDate;
     let detailStatus;
 
-    if (details.week) {
-      approveDate = moment(details.week.approved_by_date).format('MMMM Do YYYY, h:mm:ss a');
+    if (details.week && details.week.status) {
+      approveDate = details.week.approved_by_date;
       detailStatus = `${details.week.status} on ${approveDate}`;
     }
 
